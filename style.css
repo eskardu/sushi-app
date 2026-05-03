@@ -1,0 +1,82 @@
+/* Базовые настройки: темный фон и светлый текст */
+body {
+    background-color: #121212;
+    color: #ffffff;
+    font-family: sans-serif;
+    margin: 0;
+    padding: 15px;
+}
+
+.header h1 {
+    text-align: center;
+    color: #ff8c00; /* Яркий оранжевый акцент */
+}
+
+.menu-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Карточка товара */
+.product-card {
+    background-color: #1e1e1e;
+    border-radius: 12px;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+.product-info h3 {
+    margin: 0 0 5px 0;
+    font-size: 18px;
+}
+
+.product-info p {
+    margin: 0 0 10px 0;
+    font-size: 14px;
+    color: #aaaaaa;
+}
+
+.price {
+    font-weight: bold;
+    color: #ff8c00;
+}
+
+/* Кнопка добавления */
+.add-btn {
+    background-color: #ff8c00;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.add-btn:active {
+    background-color: #e07b00; /* Эффект нажатия */
+}.checkout-section {
+    margin-top: 20px;
+    background-color: #1e1e1e;
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+#location-btn {
+    background-color: #333;
+    color: white;
+    border: 1px solid #ff8c00;
+    border-radius: 8px;
+    padding: 10px;
+    width: 100%;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+#location-btn:active {
+    background-color: #ff8c00;
+}

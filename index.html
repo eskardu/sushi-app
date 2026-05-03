@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Суши Меню</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="header">
+        <h1>🍣 TEST MENU 123</h1>
+    </div>
+
+    <div class="menu">
+        <div class="item">
+            <h3>Филадельфия</h3>
+            <p>Лосось, сыр, огурец</p>
+            <p><b>45 SAR</b></p>
+            <button onclick="addToCart('Филадельфия', 45)">Добавить</button>
+        </div>
+        <div class="item">
+            <h3>Калифорния</h3>
+            <p>Краб, авокадо, тобико</p>
+            <p><b>40 SAR</b></p>
+            <button onclick="addToCart('Калифорния', 40)">Добавить</button>
+        </div>
+        <div class="item">
+            <h3>Дракон</h3>
+            <p>Угорь, сыр, унаги соус</p>
+            <p><b>55 SAR</b></p>
+            <button onclick="addToCart('Дракон', 55)">Добавить</button>
+        </div>
+    </div>
+
+    <div class="checkout-section">
+        <h3>📍 Куда доставить?</h3>
+        <button id="location-btn" onclick="requestLocation()">Определить мое местоположение</button>
+        <p id="location-status">Адрес пока не выбран</p>
+        
+        <h3 style="margin-top: 15px;">💳 Способ оплаты:</h3>
+        <div style="margin-bottom: 10px;">
+            <label style="display: block; margin-bottom: 8px;">
+                <input type="radio" name="payment" value="cash" checked> 💵 Наличными курьеру
+            </label>
+            <label style="display: block;">
+                <input type="radio" name="payment" value="online"> 💳 Онлайн (прямо в боте)
+            </label>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
