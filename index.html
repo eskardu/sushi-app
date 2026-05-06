@@ -2,88 +2,48 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Суши Меню</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Sushi App</title>
+    <link rel="stylesheet" href="style.css?v=3">
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="header">
-        <h1>🍣 TEST MENU 123</h1>
+
+    <div id="menu-container" class="menu-grid"></div>
+
+    <div id="cart-bar" onclick="openCart()">
+        <div>
+            <span id="cart-count">0</span> товаров | <span id="cart-bar-sum">0</span> SAR
+        </div>
+        <button class="cart-btn">В корзину</button>
     </div>
 
-    <!-- Основное меню -->
-    <div class="menu">
-        <div class="item">
-            <h3>Филадельфия</h3>
-            <p>Лосось, сыр, огурец</p>
-            <p><b>45 SAR</b></p>
-            <button class="add-btn" onclick="addToCart('Филадельфия', 45)">Добавить</button>
-        </div>
-        <div class="item">
-            <h3>Калифорния</h3>
-            <p>Краб, авокадо, тобико</p>
-            <p><b>40 SAR</b></p>
-            <button class="add-btn" onclick="addToCart('Калифорния', 40)">Добавить</button>
-        </div>
-        <div class="item">
-            <h3>Дракон</h3>
-            <p>Угорь, сыр, унаги соус</p>
-            <p><b>55 SAR</b></p>
-            <button class="add-btn" onclick="addToCart('Дракон', 55)">Добавить</button>
-        </div>
-    </div>
-
-    <!-- 🛒 ПЛАВАЮЩАЯ ПАНЕЛЬ КОРЗИНЫ (появляется, когда есть товары) -->
-    <div id="cart-bar" class="cart-bar" onclick="openCart()">
-        <div class="cart-bar-info">
-            <span id="cart-count">0</span> товаров
-        </div>
-        <div class="cart-bar-total">
-            Сумма: <span id="cart-bar-sum">0</span> SAR
-        </div>
-    </div>
-
-    <!-- 📦 МОДАЛЬНОЕ ОКНО КОРЗИНЫ -->
-    <div id="cart-modal" class="cart-modal">
-        <div class="cart-content">
-            <div class="cart-header">
-                <h2>Ваш заказ</h2>
-                <button class="close-modal" onclick="closeCart()">✕</button>
-            </div>
-
-            <!-- Список выбранных роллов -->
-            <div id="cart-items-list" class="cart-items-list">
-                <!-- Сюда JS будет добавлять строки -->
-            </div>
-
-            <div class="cart-summary">
-                <b>Итого: <span id="modal-total-sum">0</span> SAR</b>
-            </div>
+    <div id="checkout-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeCart()">✕</span>
+            <h2>Оформление заказа</h2>
+            
+            <div id="cart-items-list"></div>
+            <h3>Итого: <span id="modal-total-sum">0</span> SAR</h3>
 
             <hr>
+            <h3>📍 Куда везти?</h3>
+            <button onclick="requestLocation()" class="geo-btn">Определить мой адрес</button>
+            <p id="location-status">Локация не определена</p>
 
-            <!-- Блок оформления (перенесен из основного экрана) -->
-            <div class="checkout-section">
-                <h3>📍 Куда доставить?</h3>
-                <button id="location-btn" onclick="requestLocation()">📍 Определить местоположение</button>
-                <p id="location-status">Адрес не выбран</p>
-                
-                <h3>💳 Способ оплаты:</h3>
-                <div class="payment-options">
-                    <label>
-                        <input type="radio" name="payment" value="cash" checked> 💵 Наличными курьеру
-                    </label>
-                    <label>
-                        <input type="radio" name="payment" value="online"> 💳 Онлайн (в боте)
-                    </label>
-                </div>
-            </div>
+            <hr>
+            <h3>💳 Способ оплаты</h3>
+            <label class="payment-label">
+                <input type="radio" name="payment" value="cash" checked> Наличными курьеру
+            </label><br>
+            <label class="payment-label">
+                <input type="radio" name="payment" value="online"> Картой онлайн
+            </label>
 
-            <button class="send-order-btn" onclick="sendOrder()">🚀 Оформить заказ</button>
+            <button class="send-order-btn" onclick="sendOrder()">🚀 Подтвердить заказ</button>
         </div>
     </div>
 
-    <script src="app.js"></script>
+    <script src="app.js?v=3"></script>
 </body>
 </html>
