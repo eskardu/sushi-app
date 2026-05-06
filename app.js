@@ -10,12 +10,12 @@ const menuItems = [
     { name: "Дракон", price: 30, image: "resize 4.png" },
     { name: "Лава", price: 27, image: "resize 3.png" },
     { name: "Токио", price: 30, image: "resize 2.png" },
-    { name: "Бангкок", price: 30, image: "resize5.png" },
-    { name: "Калифорния", price: 30, image: "resize.png" },
-    { name: "Шаки Маки", price: 19, image: "shaki.jpg" },
-    { name: "Эби Маки", price: 18, image: "ebi.jpg" },
-    { name: "Каппи Маки", price: 14, image: "kappi.jpg" },
-    { name: "Картошка фри", price: 10, image: "fri.jpg" }
+    { name: "Бангкок", price: 30, image: "resize 5.png" },
+    { name: "Калифорния", price: 30, image: "resize 6.png" },
+    { name: "Шаки Маки", price: 19, image: "resize 7.png" },
+    { name: "Эби Маки", price: 18, image: "resize 8.png" },
+    { name: "Каппи Маки", price: 14, image: "resize 9.png" },
+    { name: "Картошка фри", price: 10, image: "freee.png" }
 ];
 
 function renderMenu() {
