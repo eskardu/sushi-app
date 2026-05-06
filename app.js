@@ -4,17 +4,20 @@ tg.expand();
 let cart = {};
 let userLocation = null;
 
+// --- ЗАМЕНИ ЭТОТ БЛОК В НАЧАЛЕ app.js ---
+
+// Твое меню с названиями файлов картинок
 const menuItems = [
-    { name: "Филадельфия", price: 32, icon: "🍣" },
-    { name: "Дракон", price: 30, icon: "🐉" },
-    { name: "Лава", price: 27, icon: "🌋" },
-    { name: "Токио", price: 30, icon: "🗼" },
-    { name: "Бангкок", price: 30, icon: "🇹🇭" },
-    { name: "Калифорния", price: 30, icon: "🦀" },
-    { name: "Шаки Маки", price: 19, icon: "🍱" },
-    { name: "Эби Маки", price: 18, icon: "🍤" },
-    { name: "Каппи Маки", price: 14, icon: "🥒" },
-    { name: "Картошка фри", price: 10, icon: "🍟" }
+    { name: "Филадельфия", price: 32, image: "resize (2).png" }, // Впиши сюда свои названия файлов!
+    { name: "Дракон", price: 30, image: "resize (3).png },
+    { name: "Лава", price: 27, image: "resize (5).png" },
+    { name: "Токио", price: 30, image: "resize (7).png" },
+    { name: "Бангкок", price: 30, image: "resize (8).png" },
+    { name: "Калифорния", price: 30, image: "california.jpg" },
+    { name: "Шаки Маки", price: 19, image: "shaki.jpg" },
+    { name: "Эби Маки", price: 18, image: "ebi.jpg" },
+    { name: "Каппи Маки", price: 14, image: "kappi.jpg" },
+    { name: "Картошка фри", price: 10, image: "fri.jpg" }
 ];
 
 function renderMenu() {
@@ -24,7 +27,9 @@ function renderMenu() {
     menuItems.forEach((item, index) => {
         container.innerHTML += `
             <div class="menu-item">
-                <div class="item-icon">${item.icon}</div>
+                <div class="item-photo-container">
+                    <img src="${item.image}" alt="${item.name}" class="sushi-photo">
+                </div>
                 <div>
                     <div class="item-title">
                         ${item.name} 
