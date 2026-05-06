@@ -4,12 +4,12 @@ tg.expand();
 let cart = {};
 let userLocation = null;
 
-// Твои товары и названия файлов с фото
+// Твои товары
 const menuItems = [
-    { name: "Филадельфия", price: 32, image: "resize 6.png" },
-    { name: "Дракон", price: 30, image: "resize 4.png" },
+    { name: "Филадельфия", price: 32, image: "resize.png" },
+    { name: "Дракон", price: 30, image: "resize 2.png" },
     { name: "Лава", price: 27, image: "resize 3.png" },
-    { name: "Токио", price: 30, image: "resize 2.png" },
+    { name: "Токио", price: 30, image: "resize 4.png" },
     { name: "Бангкок", price: 30, image: "resize 5.png" },
     { name: "Калифорния", price: 30, image: "resize 6.png" },
     { name: "Шаки Маки", price: 19, image: "resize 7.png" },
@@ -22,14 +22,22 @@ function renderMenu() {
     const container = document.getElementById('menu-container');
     container.innerHTML = '';
     
+    // Генерируем уникальное число для обхода кэша картинок в Telegram
+    const cacheBuster = new Date().getTime();
+    
+    // Прямая ссылка на твой сайт (чтобы Telegram точно нашел фото)
+    const baseUrl = "https://eskardu.github.io/sushi-app/";
+    
     menuItems.forEach((item, index) => {
-        // Если фото не загрузится, покажет серую картинку-заглушку
         let fallback = "this.onerror=null;this.src='https://via.placeholder.com/150?text=Нет+фото';";
+        
+        // Формируем бронебойную ссылку: url + имя файла + взломщик кэша
+        let imageUrl = `${baseUrl}${item.image}?v=${cacheBuster}`;
         
         container.innerHTML += `
             <div class="menu-item">
                 <div class="item-photo-container">
-                    <img src="${item.image}" alt="${item.name}" class="sushi-photo" onerror="${fallback}">
+                    <img src="${imageUrl}" alt="${item.name}" class="sushi-photo" onerror="${fallback}">
                 </div>
                 <div>
                     <div class="item-title">
@@ -132,7 +140,7 @@ function closeCart() {
 function requestLocation() {
     const statusText = document.getElementById("location-status");
     statusText.innerText = "⏳ Определяем...";
-    statusText.style.color = "#ff9800";
+    statusText.style.color = "#ffffff"; /* Белый текст на темном фоне окна, чтобы читалось */
 
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
