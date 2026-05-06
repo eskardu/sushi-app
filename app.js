@@ -6,10 +6,10 @@ let userLocation = null;
 
 // Твои товары и названия файлов с фото
 const menuItems = [
-    { name: "Филадельфия", price: 32, image: "resize(2).png" },
-    { name: "Дракон", price: 30, image: "resize(3).png" },
-    { name: "Лава", price: 27, image: "resize(5).png" },
-    { name: "Токио", price: 30, image: "resize(7).png" },
+    { name: "Филадельфия", price: 32, image: "https://github.com/eskardu/sushi-app/blob/main/resize%20(2).png" },
+    { name: "Дракон", price: 30, image: "https://github.com/eskardu/sushi-app/blob/main/resize%20(3).png" },
+    { name: "Лава", price: 27, image: "https://github.com/eskardu/sushi-app/blob/main/resize%20(5).png" },
+    { name: "Токио", price: 30, image: "https://github.com/eskardu/sushi-app/blob/main/resize%20(7).png" },
     { name: "Бангкок", price: 30, image: "resize(8).png" },
     { name: "Калифорния", price: 30, image: "resize.png" },
     { name: "Шаки Маки", price: 19, image: "shaki.jpg" },
