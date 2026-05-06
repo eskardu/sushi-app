@@ -4,15 +4,13 @@ tg.expand();
 let cart = {};
 let userLocation = null;
 
-// --- ЗАМЕНИ ЭТОТ БЛОК В НАЧАЛЕ app.js ---
-
-// Твое меню с названиями файлов картинок
+// Твои товары и названия файлов с фото
 const menuItems = [
-    { name: "Филадельфия", price: 32, image: "resize (2).png" }, // Впиши сюда свои названия файлов!
-    { name: "Дракон", price: 30, image: "resize (3).png },
-    { name: "Лава", price: 27, image: "resize (5).png" },
-    { name: "Токио", price: 30, image: "resize (7).png" },
-    { name: "Бангкок", price: 30, image: "resize (8).png" },
+    { name: "Филадельфия", price: 32, image: "phila.jpg" },
+    { name: "Дракон", price: 30, image: "dragon.jpg" },
+    { name: "Лава", price: 27, image: "lava.jpg" },
+    { name: "Токио", price: 30, image: "tokyo.jpg" },
+    { name: "Бангкок", price: 30, image: "bangkok.jpg" },
     { name: "Калифорния", price: 30, image: "california.jpg" },
     { name: "Шаки Маки", price: 19, image: "shaki.jpg" },
     { name: "Эби Маки", price: 18, image: "ebi.jpg" },
@@ -25,10 +23,13 @@ function renderMenu() {
     container.innerHTML = '';
     
     menuItems.forEach((item, index) => {
+        // Если фото не загрузится, покажет серую картинку-заглушку
+        let fallback = "this.onerror=null;this.src='https://via.placeholder.com/150?text=Нет+фото';";
+        
         container.innerHTML += `
             <div class="menu-item">
                 <div class="item-photo-container">
-                    <img src="${item.image}" alt="${item.name}" class="sushi-photo">
+                    <img src="${item.image}" alt="${item.name}" class="sushi-photo" onerror="${fallback}">
                 </div>
                 <div>
                     <div class="item-title">
